@@ -99,17 +99,17 @@ const todosCelulares = {
   "Poco":[{nome:"X5 Pro", geral:97, ponto:104, mira2x:159, mira4x:131, francotirador:118, cam360:98}]
 };
 
-// Auxílio 100% de potencia (valores multiplicados x2)
+// Auxílio 100% de potencia pero limitando a 200
 const todosCelularesAux = {};
 for (let marca in todosCelulares){
   todosCelularesAux[marca] = todosCelulares[marca].map(c=>({
     nome: c.nome,
-    geral: c.geral * 2,
-    ponto: c.ponto * 2,
-    mira2x: c.mira2x * 2,
-    mira4x: c.mira4x * 2,
-    francotirador: c.francotirador * 2,
-    cam360: c.cam360 * 2
+    geral: Math.min(c.geral * 2, 200),
+    ponto: Math.min(c.ponto * 2, 200),
+    mira2x: Math.min(c.mira2x * 2, 200),
+    mira4x: Math.min(c.mira4x * 2, 200),
+    francotirador: Math.min(c.francotirador * 2, 200),
+    cam360: Math.min(c.cam360 * 2, 200)
   }));
 }
 
@@ -184,7 +184,6 @@ function animar(){
   ctx.clearRect(0,0,w,h);
   for(let p of particulas){
     ctx.beginPath();
-    // Si Auxílio activo y rojo, aumentar tamaño y brillo
     if(tabAux.classList.contains('active') && p.color === '#ff3c3c'){
         p.size = Math.random()*12 + 8;
         ctx.fillStyle = '#ff3c3c'+'ff';
