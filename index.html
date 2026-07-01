@@ -42,12 +42,17 @@
                 from { transform: rotate(0deg); }
                 to { transform: rotate(360deg); }
             }
-           .oculto { 
-    display: none !important; 
-    opacity: 0;
-    visibility: hidden;
-}
-            /* ✅ BORDE ARCOÍRIS ANIMADO */
+            /* ✅ CLASE OCULTO CORREGIDA PARA QUE NO SE TRABE */
+            .oculto { 
+                display: none !important; 
+                opacity: 0;
+                visibility: hidden;
+            }
+            .fade-in { animation: aparecer 0.6s ease-out; }
+            @keyframes aparecer {
+                from { opacity: 0; transform: scale(0.95); }
+                to { opacity: 1; transform: scale(1); }
+            }
             .borde-arcoiris {
                 position: relative;
                 border-radius: 0.75rem;
@@ -68,7 +73,6 @@
                 0% { background-position: 0% 50%; }
                 100% { background-position: 400% 50%; }
             }
-            /* ✅ AJUSTES Y BOTONES MODO */
             .posicion-ajustes {
                 position: absolute;
                 top: 10px;
@@ -114,7 +118,6 @@
                 background: rgba(0,0,0,0.85);
                 z-index: 9998;
             }
-            /* ✅ MODO PC / CELULAR - MISMO TAMAÑO */
             .modo-pc {
                 max-width: 600px !important;
                 padding: 1.5rem !important;
@@ -125,7 +128,6 @@
                 padding: 1.5rem !important;
                 transition: all 0.4s ease;
             }
-            /* ✅ NOMBRES LATERALES EN ROJO */
             .texto-lado {
                 position: fixed;
                 top: 50%;
@@ -228,12 +230,12 @@
         <div class="codigo verde" style="top: 64%; left: 10%; animation-delay: 8s;">LUXTIN SYSTEM: ACTIVE</div>
         <div class="codigo rojo" style="top: 77%; left: 58%; animation-delay: 10s;">anti_detect: enabled</div>
         <div class="codigo verde" style="top: 90%; left: 25%; animation-delay: 12s;">boton_disparo: 42px ✅</div>
-        <div class="codigo rojo" style="top: 18%; left: 80%; animation-delay: 14s;">update: 2026.06.30</div>
+        <div class="codigo rojo" style="top: 18%; left: 80%; animation-delay: 14s;">update: 2026.07.01</div>
         <div class="codigo verde" style="top: 55%; left: 35%; animation-delay: 16s;">> load_sensi_ultra_max</div>
         <div class="codigo rojo" style="top: 82%; left: 65%; animation-delay: 18s;">precision: 99.8% 🎯</div>
     </div>
 
-    <!-- 📢 ANUNCIO INICIAL -->
+    <!-- 📢 ANUNCIO INICIAL CORREGIDO -->
     <div id="pantallaAnuncio" class="fixed inset-0 bg-negro z-50 contenedor-centro">
         <h1 class="text-rojo text-[clamp(1.8rem,5vw,4rem)] font-juego sombra-texto-rojo text-center px-4">
             LUXTIN SENCI
@@ -243,7 +245,7 @@
     <!-- 🧩 CONTENEDOR PRINCIPAL -->
     <div id="contenedorPrincipal" class="max-w-2xl mx-auto p-6 py-10 oculto fade-in relative z-10 modo-celu">
         <header class="text-center mb-10">
-            <h2 class="text-rojo text-2xl md:text-3xl font-bold mb-2">LUXTIN - SENCI</h2>
+            <h2 class="text-rojo text-2xl md:text-3xl font-bold mb-2">LUXTIN SENCI - CREADOR: LUCIANO SALA</h2>
             <p class="text-gray-300">Calibradas para dar <strong>todo a la cabeza</strong> — pareces experto sin ser hack</p>
             <p class="text-sm text-gray-400 mt-1">Escala hasta 200 • Botón recomendado: <span class="text-dorado font-bold">42</span></p>
             <p class="text-xs text-rojo/80 mt-1">🔒 Protección Anti-Robo de Configuración</p>
@@ -254,8 +256,8 @@
             <button id="btnAjustes" class="bg-dorado hover:bg-dorado/90 text-negro font-bold px-3 py-1.5 rounded text-sm shadow-md">
                 ⚙️
             </button>
-            <button id="btnCelu" class="boton-modo boton-activo"> CELU</button>
-            <button id="btnPc" class="boton-modo boton-inactivo"> PC</button>
+            <button id="btnCelu" class="boton-modo boton-activo">📱 CELU</button>
+            <button id="btnPc" class="boton-modo boton-inactivo">💻 PC</button>
         </div>
 
         <!-- ✅ BORDE ARCOÍRIS + CONTENIDO -->
@@ -288,7 +290,7 @@
                 <option value="Lenovo">Lenovo</option>
             </select>
 
-            <label class="block mb-2 font-semibold"> Modelo exacto:</label>
+            <label class="block mb-2 font-semibold">🔍 Modelo exacto:</label>
             <select id="modelo" class="w-full p-3 rounded bg-grisOscuro border border-gray-600 focus:border-rojo outline-none mb-4">
                 <option value="">— Primero elige la marca —</option>
             </select>
@@ -299,11 +301,10 @@
                 <option value="suave"> Suave</option>
                 <option value="media"> Media</option>
                 <option value="alta"> Alta</option>
-                                            
             </select>
 
             <button id="generarBtn" class="w-full bg-rojo hover:bg-rojo/90 font-bold py-3 rounded-lg text-lg shadow-lg">
-                 GENERAR SENCI
+                 GENERAR SENSI
             </button>
         </div>
 
@@ -384,27 +385,24 @@
         <div class="text-center mb-4"><strong>MARECHAL</strong><br>129 • 142 • 130 • 100 • 135 • 144</div>
         <div class="text-center mb-4"><strong>TWO9</strong><br>173 • 64 • 163 • 175 • 84 • 132</div>
     </div>
+        <script>
+        // ======================================
+        // 🔒 SEGURIDAD + ANUNCIO CORREGIDO
+        // ======================================
+        window.addEventListener('load', function() {
+            const _CLAVE = "LUXTIN-SENCI-2027-SEGURIDAD";
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.addEventListener('keydown', e => {
+                if(e.ctrlKey && ['U','I','S','J','C'].includes(e.key.toUpperCase())) e.preventDefault();
+                if(e.key === 'F12') e.preventDefault();
+            });
 
-    <script>
-       // ======================================
-// 🔒 SEGURIDAD + ANUNCIO INICIAL CORREGIDO
-// ======================================
-(function() {
-    const _CLAVE = "LUXTIN-SENCI-2027-SEGURIDAD";
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-        if(e.ctrlKey && ['U','I','S','J','C'].includes(e.key.toUpperCase())) e.preventDefault();
-        if(e.key === 'F12') e.preventDefault();
-    });
-
-    // ✅ ANUNCIO INICIAL ARREGLADO: 4 SEGUNDOS Y VISIBILIDAD CORRECTA
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('pantallaAnuncio').style.display = 'none';
-            document.getElementById('contenedorPrincipal').classList.remove('oculto');
-            document.getElementById('contenedorPrincipal').style.display = 'block';
-        }, 4000);
-    });
+            // ✅ ANUNCIO QUE SIEMPRE SE QUITA A LOS 4 SEGUNDOS
+            setTimeout(() => {
+                document.getElementById('pantallaAnuncio').style.display = 'none';
+                document.getElementById('contenedorPrincipal').classList.remove('oculto');
+                document.getElementById('contenedorPrincipal').style.display = 'block';
+            }, 4000);
 
             // ======================================
             // 📱 CAMBIO MODO CELU / PC
@@ -430,7 +428,7 @@
             });
 
             // ======================================
-            // 📋 BASE DE DATOS COMPLETA
+            // 📋 BASE DE DATOS COMPLETA DE DISPOSITIVOS
             // ======================================
             const baseDatos = {
                 "Samsung": {
@@ -490,10 +488,10 @@
                     "Honor 9X": { suave: {g:162,p:147,m2:140,m4:124,f:95,c:155}, media: {g:177,p:161,m2:155,m4:139,f:107,c:167}, alta: {g:194,p:181,m2:175,m4:161,f:126,c:185} }
                 },
                 "Oppo": {
-                    "A15": { suave: {g:162,p:147,m2:140,m4:124,f:95,c:155}, media: {g:177,p:161,m2:155,m4:139,f:107,c:1                    "A15": { suave: {g:162,p:147,m2:140,m4:124,f:95,c:155}, media: {g:177,p:161,m2:155,m4:139,f:107,c:167}, alta: {g:194,p:181,m2:175,m4:161,f:126,c:185} },
+                    "A15": { suave: {g:162,p:147,m2:140,m4:124,f:95,c:155}, media: {g:177,p:161,m2:155,m4:139,f:107,c:167}, alta: {g:194,p:181,m2:175,m4:161,f:126,c:185} },
                     "A16": { suave: {g:160,p:145,m2:138,m4:122,f:93,c:153}, media: {g:175,p:160,m2:153,m4:137,f:106,c:166}, alta: {g:192,p:179,m2:172,m4:157,f:124,c:184} },
                     "A54": { suave: {g:172,p:157,m2:150,m4:134,f:102,c:162}, media: {g:189,p:175,m2:168,m4:153,f:120,c:179}, alta: {g:200,p:194,m2:188,m4:179,f:140,c:199} },
-                    "A76": { suave: {g:175,p:160,m2:153,m4:137,f:105,c:165}, media: {g:192,p:178,m2:171,m4:157,f:123,c:182}, alta: {g:200,p:195,m2:189,m4:180,f:141,c:200} },
+                    "A76": { suave: {g:175,pg:175,p:160,m2:153,m4:137,f:105,c:165}, media: {g:192,p:178,m2:171,m4:157,f:123,c:182}, alta: {g:200,p:195,m2:189,m4:180,f:141,c:200} },
                     "Reno 8": { suave: {g:180,p:165,m2:159,m4:143,f:110,c:171}, media: {g:196,p:183,m2:177,m4:163,f:128,c:188}, alta: {g:200,p:199,m2:194,m4:187,f:144,c:200} }
                 },
                 "Realme": {
@@ -555,14 +553,14 @@
             };
 
             // ======================================
-            // 📋 CARGAR MODELOS AL SELECCIONAR MARCA
+            // 📱 CARGAR MODELOS AL ELEGIR MARCA
             // ======================================
             const selectMarca = document.getElementById('marca');
             const selectModelo = document.getElementById('modelo');
 
             selectMarca.addEventListener('change', () => {
                 const marca = selectMarca.value;
-                selectModelo.innerHTML = marca ? `<option value="">— Elige modelo —</option>` : `<option value="">— Primero la marca —</option>`;
+                selectModelo.innerHTML = marca ? `<option value="">— Elige modelo —</option>` : `<option value="">— Primero selecciona marca —</option>`;
                 if (!marca || !baseDatos[marca]) return;
                 Object.keys(baseDatos[marca]).forEach(modelo => {
                     const opcion = document.createElement('option');
@@ -646,7 +644,7 @@
                 fondoSens.classList.add('oculto');
                 ventanaSens.classList.add('oculto');
             });
-        })();
+        });
     </script>
-</body>
+    </body>
 </html>
