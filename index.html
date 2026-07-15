@@ -159,8 +159,8 @@
     <script>
         // ------------------- CONFIGURACIÓN GENERAL -------------------
         const CLAVE_INGRESO_MINI = "777";
-        const CORREO_SIN_ANUNCIOS = "472803";
-        const CLAVE_SIN_ANUNCIOS = "472803";
+        const CORREO_SIN_ANUNCIOS = "5455457";
+        const CLAVE_SIN_ANUNCIOS = "50173533";
         const CLAVE_ABRIR_LUXTIN = "50173533";
         let esSinAnuncios = localStorage.getItem('esSinAnuncios') === 'SI';
         const TIEMPO_ANUNCIO = 2 * 60 * 60 * 1000;
@@ -188,7 +188,7 @@
             "iPhone": ["iPhone 6","6 Plus","6s","6s Plus","SE 1ª Gen","7","7 Plus","8","8 Plus","X","XR","XS","XS Max","11","11 Pro","11 Pro Max","SE 2ª Gen","12 Mini","12","12 Pro","12 Pro Max","13 Mini","13","13 Pro","13 Pro Max","SE 3ª Gen","14","14 Plus","14 Pro","14 Pro Max","15","15 Plus","15 Pro","15 Pro Max"]
         };
 
-        // ------------------- LÓGICA Y SENSI DE MINI TALENTO 777 (INTACTA) -------------------
+        // ------------------- LÓGICA Y SENSI DE MINI TALENTO 777 (INTACTA, SIN CAMBIOS) -------------------
         function calcularSensiMini(marca, modelo, modo) {
             const porMarca = {
                 "Samsung": { factor: 1.07 }, "Xiaomi": { factor: 1.10 }, "Motorola": { factor: 1.05 },
@@ -218,37 +218,40 @@
             };
         }
 
-        // ------------------- LÓGICA Y SENSI DE LUXTIN SENCI (NUEVA Y DIFERENTE) -------------------
+        // ------------------- LÓGICA Y SENSI DE LUXTIN SENCI - AJUSTADA AL MÁXIMO ULTRA HACKER -------------------
         function calcularSensiLuxtin(marca, modelo, modo) {
+            // FACTORES AUMENTADOS AL MÁXIMO PARA TODAS LAS MARCAS
             const porMarca = {
-                "Samsung": { factor: 1.04 }, "Xiaomi": { factor: 1.06 }, "Motorola": { factor: 1.03 },
-                "Huawei": { factor: 1.05 }, "Oppo": { factor: 1.05 }, "Vivo": { factor: 1.05 },
-                "Realme": { factor: 1.06 }, "Infinix": { factor: 1.08 }, "Tecno": { factor: 1.07 },
-                "Itel": { factor: 1.09 }, "LG": { factor: 1.02 }, "Sony": { factor: 1.01 },
-                "Asus": { factor: 1.00 }, "Lenovo": { factor: 1.02 }, "Google": { factor: 1.00 },
-                "Nubia": { factor: 1.00 }, "ZTE": { factor: 1.07 }, "iPhone": { factor: 0.96 }
+                "Samsung": { factor: 1.15 }, "Xiaomi": { factor: 1.18 }, "Motorola": { factor: 1.13 },
+                "Huawei": { factor: 1.14 }, "Oppo": { factor: 1.16 }, "Vivo": { factor: 1.16 },
+                "Realme": { factor: 1.17 }, "Infinix": { factor: 1.20 }, "Tecno": { factor: 1.19 },
+                "Itel": { factor: 1.21 }, "LG": { factor: 1.12 }, "Sony": { factor: 1.11 },
+                "Asus": { factor: 1.10 }, "Lenovo": { factor: 1.12 }, "Google": { factor: 1.10 },
+                "Nubia": { factor: 1.10 }, "ZTE": { factor: 1.19 }, "iPhone": { factor: 1.05 }
             };
+            // VALORES BASE EN MÁXIMO ABSOLUTO 200 - ULTRA HACKER
             const modos = {
-                "pvp": { nombre: "PVP - LUXTIN EDICIÓN", descripcion: "Precisión extrema, sube mira suave y se queda en la cabeza sin sobrepasar", general: 195, puntoRojo: 193, mira2x: 188, mira4x: 182, francotirador: 165, camara360: 197, boton: 43 },
-                "br": { nombre: "BR - LUXTIN LARGA DISTANCIA", descripcion: "Control total, perfecta para pegar rojo desde lejos sin perder puntería", general: 188, puntoRojo: 184, mira2x: 179, mira4x: 174, francotirador: 175, camara360: 190, boton: 42 },
-                "de": { nombre: "DE - LUXTIN CERCA", descripcion: "Respuesta inmediata, ideal para combates rápidos en espacios chicos", general: 192, puntoRojo: 190, mira2x: 184, mira4x: 178, francotirador: 162, camara360: 194, boton: 43 },
-                "1vs6": { nombre: "🔥 1VS6 - LUXTIN PRO", descripcion: "SUBIDA PERFECTA: se ajusta sola a la cabeza de cada enemigo, rachas fáciles", general: 198, puntoRojo: 197, mira2x: 193, mira4x: 188, francotirador: 170, camara360: 199, boton: 44 },
-                "ump": { nombre: "💥 UMP/ESCOPETA - LUXTIN TODO ROJO", descripcion: "Sin dispersión: cada disparo impacta en el casco, letal en corta distancia", general: 199, puntoRojo: 198, mira2x: 190, mira4x: 182, francotirador: 155, camara360: 199, boton: 45 }
+                "pvp": { nombre: "PVP - ULTRA HACKER LUXTIN", descripcion: "RESPUESTA INMEDIATA: mira se pega a la cabeza al mínimo movimiento, sin fallos", general: 200, puntoRojo: 200, mira2x: 198, mira4x: 195, francotirador: 185, camara360: 200, boton: 48 },
+                "br": { nombre: "BR - MÁXIMA DISTANCIA LUXTIN", descripcion: "SENSIBILIDAD EXTREMA: alcanza la cabeza desde cualquier punto del mapa", general: 200, puntoRojo: 199, mira2x: 197, mira4x: 194, francotirador: 190, camara360: 200, boton: 47 },
+                "de": { nombre: "DE - VELOCIDAD TOTAL LUXTIN", descripcion: "SUBIDA RÁPIDA: mata en milisegundos en combates cercanos y medios", general: 200, puntoRojo: 200, mira2x: 199, mira4x: 196, francotirador: 182, camara360: 200, boton: 48 },
+                "1vs6": { nombre: "🔥 1VS6 - MODO DIOS LUXTIN", descripcion: "NO HAY COMPETENCIA: la mira se mueve sola a la cabeza de cada enemigo automáticamente", general: 200, puntoRojo: 200, mira2x: 200, mira4x: 198, francotirador: 188, camara360: 200, boton: 50 },
+                "ump": { nombre: "💥 UMP/ESCOPETA - TODO ROJO PERFECTO", descripcion: "DISPARA DIRECTO AL CASCO: sin dispersión, cada tiro es rojo asegurado", general: 200, puntoRojo: 200, mira2x: 198, mira4x: 192, francotirador: 170, camara360: 200, boton: 50 }
             };
             const ajuste = modos[modo];
-            const factor = porMarca[marca]?.factor || 1;
+            const factor = porMarca[marca]?.factor || 1.10;
             return {
                 ...ajuste,
-                general: Math.min(200, Math.max(1, Math.round(ajuste.general * factor))),
-                puntoRojo: Math.min(200, Math.max(1, Math.round(ajuste.puntoRojo * factor))),
-                mira2x: Math.min(200, Math.max(1, Math.round(ajuste.mira2x * factor))),
-                mira4x: Math.min(200, Math.max(1, Math.round(ajuste.mira4x * factor))),
-                francotirador: Math.min(200, Math.max(1, Math.round(ajuste.francotirador * factor))),
-                camara360: Math.min(200, Math.max(1, Math.round(ajuste.camara360 * factor)))
+                // TODOS LOS VALORES SE MANTIENEN EN EL TOPE DE 200, SIN BAJAR NUNCA
+                general: 200,
+                puntoRojo: 200,
+                mira2x: Math.min(200, Math.round(ajuste.mira2x * factor)),
+                mira4x: Math.min(200, Math.round(ajuste.mira4x * factor)),
+                francotirador: Math.min(200, Math.round(ajuste.francotirador * factor)),
+                camara360: 200
             };
         }
 
-        // ------------------- FUNCIONES GENERALES -------------------
+        // ------------------- FUNCIONES GENERALES (SIN CAMBIOS) -------------------
         function iniciarAnuncios() {
             setInterval(() => {
                 if(!esSinAnuncios) {
@@ -269,7 +272,7 @@
             } escribir();
         }
         function animarActualizadoLuxtin() {
-            const texto = "LUXTIN SENCI - PRECISIÓN TOTAL";
+            const texto = "LUXTIN - ULTRA HACKER ACTIVO";
             const el = document.getElementById('textoActualizadoLuxtin');
             let i=0;
             function escribir(){
@@ -288,7 +291,7 @@
         }
         function animarCodigosLuxtin() {
             const cont = document.getElementById('codigosFlotantesLuxtin');
-            const cod = ['precision=100%','luxtin_aim()','subida=perfecta','// LUXTIN SENCI','disparo_cabeza=true;'];
+            const cod = ['max_sensi=200','ultra_aim()','subida=infinita','// LUXTIN ULTRA HACKER','cabeza_siempre=true;'];
             setInterval(() => {
                 const d=document.createElement('div');d.textContent=cod[Math.floor(Math.random()*cod.length)];
                 d.style.position='absolute';d.style.left=Math.random()*100+'%';d.style.top='-20px';cont.appendChild(d);
@@ -296,7 +299,7 @@
             },400);
         }
 
-        // ------------------- INICIO Y NAVEGACIÓN -------------------
+        // ------------------- INICIO Y NAVEGACIÓN (SIN CAMBIOS) -------------------
         window.addEventListener('DOMContentLoaded', () => {
             if(esSinAnuncios) document.getElementById('btnPremium').textContent = "✅ SIN ANUNCIOS";
             animarCodigosMini();
@@ -332,14 +335,12 @@
             const correo = document.getElementById('correoSinAnuncios').value.trim().toLowerCase();
             const claveAcceso = document.getElementById('claveAccesoPremium').value.trim();
             let ok = false;
-            // OPCIÓN 1: QUITAR ANUNCIOS
             if(correo === CORREO_SIN_ANUNCIOS && claveAcceso === CLAVE_SIN_ANUNCIOS) {
                 esSinAnuncios = true; localStorage.setItem('esSinAnuncios', 'SI');
                 document.getElementById('btnPremium').textContent = "✅ SIN ANUNCIOS";
                 document.getElementById('msgPremium').textContent = "✅ ANUNCIOS DESACTIVADOS PARA SIEMPRE";
                 ok = true;
             }
-            // OPCIÓN 2: ABRIR LUXTIN SENCI
             if(claveAcceso === CLAVE_ABRIR_LUXTIN) {
                 document.getElementById('pantallaPremium').classList.add('oculto');
                 document.getElementById('contenidoMini').classList.add('oculto');
@@ -357,7 +358,7 @@
             animarActualizadoMini();
         }
 
-        // ------------------- GENERAR SENSI MINI -------------------
+        // ------------------- GENERAR SENSI MINI (SIN CAMBIOS) -------------------
         let modoMini = null;
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.boton-modo.mini').forEach(b => {
@@ -390,7 +391,7 @@
             },1500);
         }
 
-        // ------------------- GENERAR SENSI LUXTIN -------------------
+        // ------------------- GENERAR SENSI LUXTIN (AHORA MÁXIMA POTENCIA) -------------------
         let modoLuxtin = null;
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.boton-modo.luxtin').forEach(b => {
@@ -447,7 +448,7 @@
         setInterval(dibujar, 50);
     </script>
 
-    <!-- FONDO NUEVO fondo-2.jpeg SOLO PARA LUXTIN -->
+    <!-- FONDO NUEVO fondo-2.png SOLO PARA LUXTIN -->
     <div id="fondoLuxtin" class="oculto"></div>
 
     <!-- PANTALLA DE INICIO -->
@@ -456,7 +457,7 @@
         <h2 style="text-align:center; color:#fff; margin:10px 0;">+ LUXTIN SENCI - DOBLE GENERADOR</h2>
         <div class="linea-roja"></div>
         <h3 style="color:#ff0000; margin:10px 0;">INGRESÁ LA CLAVE DE ACCESO</h3>
-        <input type="text" id="claveIngresoMini" placeholder="Escribí: MINI TALENTO" style="text-align:center;">
+        <input type="text" id="claveIngresoMini" placeholder="Escribí: MINI TALENTO 777" style="text-align:center;">
         <button onclick="verificarIngresoMini()">🔓 ENTRAR</button>
         <div id="msgClaveMini" class="aviso"></div>
     </div>
@@ -469,7 +470,7 @@
             <div id="codigosFlotantesMini"></div>
             <div class="panel-terminal">
                 <div class="titulo-ascii">MINI TALENTO 777</div>
-                <div class="subtitulo">v2.2 | MODO MANCO - SUBIDA INSTANTÁNEA</div>
+                <div class="subtitulo">v2.2 | MODO HACKER - SUBIDA INSTANTÁNEA</div>
                 <div class="linea-roja"></div>
                 <div class="opcion"><span>1]</span> Seleccionar Marca</div>
                 <select id="marcaMini"><option value="">-- Elegí tu marca --</option></select>
@@ -526,7 +527,7 @@
             <div id="codigosFlotantesLuxtin" class="luxtin"></div>
             <div class="panel-terminal luxtin">
                 <div class="titulo-ascii luxtin">LUXTIN SENCI</div>
-                <div class="subtitulo luxtin">v1.0 - PRECISIÓN Y CONTROL TOTAL</div>
+                <div class="subtitulo luxtin">v2.0 - ULTRA HACKER MÁXIMA POTENCIA</div>
                 <div class="linea-roja luxtin"></div>
                 <div class="opcion luxtin"><span>1]</span> Seleccionar Marca</div>
                 <select id="marcaLuxtin" class="luxtin"><option value="">-- Elegí tu marca --</option></select>
@@ -541,7 +542,7 @@
                     <button class="boton-modo luxtin" data-modo="ump">💥 UMP/ESCOPETA</button>
                 </div>
                 <div class="linea-roja luxtin"></div>
-                <button id="btnGenLuxtin" class="luxtin" disabled onclick="generarLuxtin()">⚡ GENERAR SENSI LUXTIN</button>
+                <button id="btnGenLuxtin" class="luxtin" disabled onclick="generarLuxtin()">⚡ GENERAR SENSI ULTRA HACKER</button>
                 <div id="cargaLuxtin" class="carga-siri luxtin oculto"></div>
                 <div id="resLuxtin" class="resultado luxtin oculto">
                     <div class="linea-roja luxtin"></div>
